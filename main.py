@@ -4,7 +4,7 @@ from datetime import time
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import Response,StreamingResponse
 from pydantic import BaseModel
-import picamera
+import picamera2
 
 app = FastAPI()
 
@@ -40,7 +40,7 @@ def get_item(item_id: int) -> Item:
         raise HTTPException(status_code=404, detail=f"Item {item_id} not found")
 
 def generate_frames():
-    with picamera.PiCamera() as camera:
+    with picamera2.PiCamera() as camera:
         camera.resolution = (640, 480)
         camera.framerate = 30
         stream = io.BytesIO()
@@ -58,7 +58,7 @@ def feed():
 
 @app.get("/image")
 async def get_image():
-    picam2 = picamera.PiCamera()
+    picam2 = picamera2.PiCamera()
     # Configure for a 1080p still image
     capture_config = picam2.create_still_configuration(main={"size": (640, 480)})
     picam2.configure(capture_config)
