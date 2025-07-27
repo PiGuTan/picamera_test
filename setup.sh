@@ -1,0 +1,1 @@
+sudo apt install -y python3-flask python3-opencv python3-picamera2

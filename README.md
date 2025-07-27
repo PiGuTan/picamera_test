@@ -1,3 +1,7 @@
-# Simple FastAPI Example
+```commandline
+bash setup.sh
+```
 
-This is a really basic example of a FastAPI application.
+```commandline
+python main.py
+```

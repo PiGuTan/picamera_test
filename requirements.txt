@@ -1,3 +1,0 @@
-fastapi
-uvicorn
-picamera2 # on raspberry pi only
